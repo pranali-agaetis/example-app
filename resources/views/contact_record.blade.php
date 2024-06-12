@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Contact Form Records </title>
   </head>
@@ -35,6 +36,7 @@
       <th scope="col">Email ID</th>
       <th scope="col">Mobile No</th>
       <th scope="col">Address</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -45,6 +47,11 @@
       <td>{{$records->email}}</td>
       <td>{{$records->mobile}}</td>
       <td>{{$records->address}}</td>
+      <td>
+      <a href="{{url('/edit/'.$records->id)}}"><i class="fa fa-pencil text-dark"></i></a>
+      <span class="text-dark mr-auto ml-auto">|</span>
+      <a href="{{url('/delete/'.$records->id)}}"><i class="fa fa-trash text-dark"></i></a>
+    </td>
     </tr>
     @endforeach
   

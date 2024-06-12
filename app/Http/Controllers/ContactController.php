@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
-    // public function index(){
-    //     return view('contact');
-    // }
+     public function add(){
+       return view('contact');
+    }
     public function contact(Request $request){
         
         $data = new Contact;
@@ -22,9 +22,7 @@ class ContactController extends Controller
         $data->address=$request->input('address');
 
         $data->save();
-
-        return back();
-    //print_r($request->all());
+        return redirect('contact_record');
     }
 
 //     function contact_record(){
@@ -55,4 +53,19 @@ class ContactController extends Controller
 
         return view('contact_record', compact('contacts'));
     }
+
+
+    public function edit($id)
+    {
+        $contacts=Contact::find($id);
+        return view('edit', compact('contacts'));
+       
+    }
+    public function delete($id)
+    {
+        $contacts=Contact::find($id);
+        $contacts->delete();
+        return redirect('contact_record')->with('status','Data deleted successfully');
+    }
+    
 }

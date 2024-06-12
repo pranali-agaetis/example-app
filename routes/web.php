@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,11 +26,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/test', [TestController::class, 'index']);
-
-Route::get('/contact',[ContactController::class,'index']);
+//create page view
+Route::get('/contact',function(){
+    return view('contact');
+});
+//Submit create page data to database
 Route::post('/contact',[ContactController::class,'contact']);
 
-Route::get('/contacts',[ContactController::class, 'index']);
+Route::get('/contact_record',[ContactController::class, 'index']);
 //Route::get('/contact_record',[ContactController::class,'view']);
+
+// Edit page view 
+Route::get('/edit/{id}',function(){
+    return view('edit_contact');
+});
+//Update edit page data
+Route::post('/edit/{id}',[ContactController::class,'edit']);
+
+// Delete Page View
+Route::get('/delete/{id}',[ContactController::class,'delete']);
+
 
