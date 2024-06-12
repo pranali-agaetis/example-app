@@ -26,7 +26,7 @@ Company Reg No: 11934227
 <div class="text-center text-md-left text-white">
 VAT Number: GB 337 9500 84
 </div>
-</div>
+</div> 
 </div>
 <div class="col">
 <div class="row">
