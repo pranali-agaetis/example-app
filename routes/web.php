@@ -14,7 +14,13 @@ use App\Http\Controllers\ContactController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/home',function(){
+    return view('layouts.home');
+});
 
+Route::get('/about',function(){
+    return view('layouts.about');
+});
 Route::get('/', function () {
     return view('welcome');
 });
@@ -26,3 +32,4 @@ Route::post('/contact',[ContactController::class,'contact']);
 
 Route::get('/contacts',[ContactController::class, 'index']);
 //Route::get('/contact_record',[ContactController::class,'view']);
+
