@@ -17,7 +17,7 @@ class ContactController extends Controller
         $data = new Contact;
 
         $data->name=$request->input('name');
-        $data->email=$request->input('email');
+        $data->email=$request->input('email'); 
         $data->mobile=$request->input('mobile');
         $data->address=$request->input('address');
 
@@ -25,24 +25,7 @@ class ContactController extends Controller
         return redirect('contact_record');
     }
 
-//     function contact_record(){
-//        $search_records=Contact::all();
-//        return view('contact_record',compact('records'));
-//     }
 
-//    public function view(Request $request)
-//     {
-//         $search=$request['search'] ?? "";
-//         if($search!=="")
-//         {
-//             $data=Contact::where('name','LIKE',"%$search%")->get();
-//         }
-//         else{
-//             $data=Contact::all();
-//         }
-//         $search_records=compact('data','search');
-//         return view('contact_record', compact('search_records'));
-//     }
 
     public function index(Request $request) {
         $contacts = Contact::query()
@@ -57,10 +40,23 @@ class ContactController extends Controller
 
     public function edit($id)
     {
-        $contacts=Contact::find($id);
-        return view('edit', compact('contacts'));
-       
+        $contact = Contact::find($id);
+        return view('edit_contact', compact('contact'));
     }
+
+    public function update(Request $request,$id){
+        $contact = Contact::find($id);
+        $contact->name=$request->input('name');
+        $contact->email=$request->input('email'); 
+        $contact->mobile=$request->input('mobile');
+        $contact->address=$request->input('address');
+
+        $contact->update();
+        return redirect('contact_record')->with('status','Data updated successfully');
+    }
+
+
+
     public function delete($id)
     {
         $contacts=Contact::find($id);

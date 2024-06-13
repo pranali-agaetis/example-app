@@ -13,30 +13,30 @@
   <body>
     <div class="container">
         <h1 class="text-center">Update Contact Form</h1>
-    <form method="POST" action="{{url('/')}}/edit/{id}">
+    <form method="POST" action="{{ url('update-contact/'.$contact->id)}}">
         @csrf
     <div class="form-group">
       
         <label for="exampleInputEmail1">Name</label>
         <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name"
-        value="{{$contacts->name}}">
+        value="{{$contact->name}}">
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Email Id</label>
         <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email Id"
-        value="{{$contacts->email}}">
+        value="{{$contact->email}}">
     </div>
     <div class="form-group">
         <label for="exampleInputEmail1">Mobile No</label>
         <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Enter Mobile No"
-        value="{{$contacts->mobile}}">
+        value="{{$contact->mobile}}">
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Address</label>
-        <textarea class="form-control" id="address" name="address" rows="3">{{$contacts->address}}</textarea>
+        <textarea class="form-control" id="address" name="address" rows="3">{{$contact->address}}</textarea>
     </div>
     
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Update</button>
     </form>
     </div>
    

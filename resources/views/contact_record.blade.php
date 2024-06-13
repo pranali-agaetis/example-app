@@ -43,7 +43,7 @@
     @foreach ($contacts as $records)
     <tr>
       <td>{{$records->id}}</th>
-      <td>{{$records->name}}</td>
+      <td>{{$records->name}} </td>
       <td>{{$records->email}}</td>
       <td>{{$records->mobile}}</td>
       <td>{{$records->address}}</td>

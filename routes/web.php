@@ -37,11 +37,10 @@ Route::get('/contact_record',[ContactController::class, 'index']);
 //Route::get('/contact_record',[ContactController::class,'view']);
 
 // Edit page view 
-Route::get('/edit/{id}',function(){
-    return view('edit_contact');
-});
+Route::get('/edit/{id}',[ContactController::class,'edit']);
+
 //Update edit page data
-Route::post('/edit/{id}',[ContactController::class,'edit']);
+Route::post('/update-contact/{id}',[ContactController::class,'update']);
 
 // Delete Page View
 Route::get('/delete/{id}',[ContactController::class,'delete']);
